@@ -1,4 +1,5 @@
 import express from "express";
+import axios from 'axios'
 
 const app = express();
 const port = process.env.PORT || 3210;
@@ -13,7 +14,7 @@ app.post("/", async (req, res) => {
 
   try {
     res.sendStatus(200);
-    const response = await fetch(
+    const response = await axios(
       `https://mcx7-y7gmyxh3r68hjq35gqpswl1.pub.sfmc-content.com/b3vv3sh0j2x?TaskId=${TaskId}&ShipToAddress=${addressLine1}${addressLine2}`,
       {
         method: "POST",

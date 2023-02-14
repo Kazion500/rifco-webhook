@@ -1,5 +1,5 @@
 import express from "express";
-import axios from 'axios'
+import axios from "axios";
 
 const app = express();
 const port = process.env.PORT || 3210;
@@ -10,12 +10,22 @@ app.use(express.urlencoded({ extended: true }));
 
 app.post("/", async (req, res) => {
   console.log(req.body);
-  const { addressLine1, addressLine2, TaskId } = req.body;
+  const {
+    addressLine1,
+    addressLine2,
+    TaskId,
+    city,
+    province,
+    postalCode,
+    firstName,
+    lastName,
+  } = req.body;
 
   try {
     res.sendStatus(200);
+    const address = `${firstName} ${lastName}, ${addressLine1}, ${addressLine2}, ${city}, ${province}, ${postalCode}`;
     const response = await axios(
-      `https://mcx7-y7gmyxh3r68hjq35gqpswl1.pub.sfmc-content.com/b3vv3sh0j2x?TaskId=${TaskId}&ShipToAddress=${addressLine1}${addressLine2}`,
+      `https://mcx7-y7gmyxh3r68hjq35gqpswl1.pub.sfmc-content.com/b3vv3sh0j2x?TaskId=${TaskId}&ShipToAddress=${address}`,
       {
         method: "POST",
         headers: {

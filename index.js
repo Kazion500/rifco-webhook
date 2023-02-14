@@ -40,27 +40,6 @@ app.post("/", async (req, res) => {
   }
 });
 
-/*****
- * {
-  firstName: 'Rap',
-  lastName: 'rmbewe68@gmail.com',
-  addressLine1: 'kabanana site and service,30/20',
-  addressLine2: 'Lusaka Main Post Office, Cairo Road',
-  city: 'Lusaka',
-  province: 'Lusaka',
-  postalCode: '10101',
-  TaskId: '00T4c000004fEeeEAE',
-  form_id: '91b98cb',
-  form_name: 'New Form'
-}
- * 
- * 
- * 
- * 
- * 
- * 
- * **/
-
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
